@@ -2,18 +2,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.thizzer.jtouchbar</groupId>
+    <groupId>ca.zone42.jtouchbar</groupId>
     <artifactId>jtouchbar</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <name>JTouchBar</name>
     <description>
         Java library for using the touchbar API on supported macbooks.
     </description>
-    <url>https://github.com/Thizzer/JTouchBar</url>
+    <url>https://github.com/philippelatulippe/JTouchBar</url>
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/Thizzer/JTouchBar/blob/master/LICENSE</url>
+            <url>https://github.com/philippelatulippe/JTouchBar/blob/master/LICENSE</url>
         </license>
     </licenses>
     <organization>
@@ -29,9 +29,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git://github.com/Thizzer/JTouchBar.git</connection>
-        <developerConnection>scm:git:ssh://github.com:Thizzer/JTouchBar.git</developerConnection>
-        <url>https://github.com/Thizzer/JTouchBar/tree/master</url>
+        <connection>scm:git:git://github.com/philippelatulippe/JTouchBar.git</connection>
+        <developerConnection>scm:git:ssh://github.com:philippelatulippe/JTouchBar.git</developerConnection>
+        <url>https://github.com/philippelatulippe/JTouchBar/tree/master</url>
     </scm>
     <distributionManagement>
         <snapshotRepository>
