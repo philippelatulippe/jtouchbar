@@ -1,0 +1,30 @@
+name: Xcode - Build and Analyze
+
+on:
+  push:
+    branches: [ "development" ]
+  pull_request:
+    branches: [ "development" ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore cached dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m4
+            ~/.binaries
+          key: ${{ runner.os }}-development
+
+      - name: Build native library
+        run: xcodebuild -scheme JTouchBar-Release | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Build jar
+        run: mvn clean install -f pom.xml
