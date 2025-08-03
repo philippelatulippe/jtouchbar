@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ca.zone42.jtouchbar</groupId>
     <artifactId>jtouchbar</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>JTouchBar</name>
     <description>
         Java library for using the touchbar API on supported macbooks.
@@ -71,7 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <executions>
                     <execution>
                         <id>default-compile</id>
@@ -99,12 +99,24 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!-- Export paths to our dependencies so that they can be used in the argLine for the mockito workaround -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>3.0.0-M5</version>
                 <configuration>
-                    <argLine>-XstartOnFirstThread</argLine>
+                    <argLine>-javaagent:${org.mockito:mockito-core:jar} -XstartOnFirstThread</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -128,7 +140,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.3.2</version>
                 <configuration>
                     <javadocVersion>1.5</javadocVersion>
                     <source>8</source>
@@ -143,18 +155,26 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/release/resources</directory>
+                <excludes>
+                    <exclude>**/PLACEHOLDER.md</exclude>
+                </excludes>
+            </resource>
+        </resources>
     </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.9.0</version>
+            <version>5.18.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -171,7 +191,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
