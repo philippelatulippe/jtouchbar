@@ -1,0 +1,46 @@
+name: Publish to Maven Central
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - id: install-secret-key
+        name: Install gpg secret key
+        run: |
+          # Install gpg secret key
+          cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
+          # Verify gpg secret key
+          gpg --list-secret-keys --keyid-format LONG
+        
+      - name: Restore cached dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m4
+            ~/.binaries
+          key: ${{ runner.os }}-development
+
+      - name: Build native library
+        run: xcodebuild -scheme JTouchBar-Release | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Build & deploy
+        env:
+          GPG_KEY_NAME: "Philippe Latulippe Maven Signer"
+          MAVEN_USERNAME: "${{ secrets.MAVEN_CENTRAL_USERNAME }}"
+          MAVEN_PASSWORD: "${{ secrets.MAVEN_CENTRAL_TOKEN }}"
+        run: |
+          mvn \
+            --no-transfer-progress \
+            --batch-mode \
+            -Dgpg.passphrase=${{ secrets.GPG_SECRET_KEY_PASSWORD }} \
+            clean deploy \
+            -f pom.xml -\
+            P maven-central-staging-sign

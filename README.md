@@ -1,4 +1,4 @@
-# JTouchBar2
+# JTouchBar 2
 
 Java library for using the touchbar API on supported macbooks. Fork of ttveldhuis' original [JTouchBar2] that adds arm64 support and merges various patches.
 
@@ -46,7 +46,7 @@ jTouchBar.show(frame);
 
 ### Using JTouchBar with JavaFX
 
-There is a separate library for adding JavaFX support.
+There is a separate library for adding JavaFX support. (not yet built by this fork)
 
 #### Maven
 
@@ -94,7 +94,7 @@ jTouchBar.show(
 
 ### Using JTouchBar with SWT
 
-There is a separate library for adding SWT support.
+There is a separate library for adding SWT support. (not yet built by this fork)
 
 #### Maven
 

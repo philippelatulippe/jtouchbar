@@ -1,4 +1,4 @@
-name: Xcode - Build and Analyze
+name: Build & Test
 
 on:
   push:
@@ -27,4 +27,4 @@ jobs:
         run: xcodebuild -scheme JTouchBar-Release | xcpretty && exit ${PIPESTATUS[0]}
 
       - name: Build jar
-        run: mvn clean install -f pom.xml
+        run: mvn --no-transfer-progress clean install -f pom.xml

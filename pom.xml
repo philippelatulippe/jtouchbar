@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ca.zone42.jtouchbar</groupId>
     <artifactId>jtouchbar</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.0</version>
     <name>JTouchBar</name>
     <description>
         Java library for using the touchbar API on supported macbooks.
@@ -21,6 +21,12 @@
         <name>Thizzer</name>
     </organization>
     <developers>
+        <developer>
+            <name>Philippe Latulippe</name>
+            <email>mvn.imagines298@simplelogin.com</email>
+            <organization></organization>
+            <organizationUrl>http://www.fieldofdeeds.com/</organizationUrl>
+        </developer>
         <developer>
             <name>Thys ten Veldhuis</name>
             <email>t.tenveldhuis@gmail.com</email>
