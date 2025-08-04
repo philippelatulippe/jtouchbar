@@ -2,18 +2,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.thizzer.jtouchbar</groupId>
+    <groupId>ca.zone42.jtouchbar</groupId>
     <artifactId>jtouchbar</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>2.0.0</version>
     <name>JTouchBar</name>
     <description>
         Java library for using the touchbar API on supported macbooks.
     </description>
-    <url>https://github.com/Thizzer/JTouchBar</url>
+    <url>https://github.com/philippelatulippe/JTouchBar</url>
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/Thizzer/JTouchBar/blob/master/LICENSE</url>
+            <url>https://github.com/philippelatulippe/JTouchBar/blob/master/LICENSE</url>
         </license>
     </licenses>
     <organization>
@@ -22,6 +22,12 @@
     </organization>
     <developers>
         <developer>
+            <name>Philippe Latulippe</name>
+            <email>mvn.imagines298@simplelogin.com</email>
+            <organization></organization>
+            <organizationUrl>http://www.fieldofdeeds.com/</organizationUrl>
+        </developer>
+        <developer>
             <name>Thys ten Veldhuis</name>
             <email>t.tenveldhuis@gmail.com</email>
             <organization>Thizzer</organization>
@@ -29,9 +35,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git://github.com/Thizzer/JTouchBar.git</connection>
-        <developerConnection>scm:git:ssh://github.com:Thizzer/JTouchBar.git</developerConnection>
-        <url>https://github.com/Thizzer/JTouchBar/tree/master</url>
+        <connection>scm:git:git://github.com/philippelatulippe/JTouchBar.git</connection>
+        <developerConnection>scm:git:ssh://github.com:philippelatulippe/JTouchBar.git</developerConnection>
+        <url>https://github.com/philippelatulippe/JTouchBar/tree/master</url>
     </scm>
     <distributionManagement>
         <snapshotRepository>
@@ -71,7 +77,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <executions>
                     <execution>
                         <id>default-compile</id>
@@ -99,12 +105,24 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!-- Export paths to our dependencies so that they can be used in the argLine for the mockito workaround -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>3.0.0-M5</version>
                 <configuration>
-                    <argLine>-XstartOnFirstThread</argLine>
+                    <argLine>-javaagent:${org.mockito:mockito-core:jar} -XstartOnFirstThread</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -128,7 +146,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.3.2</version>
                 <configuration>
                     <javadocVersion>1.5</javadocVersion>
                     <source>8</source>
@@ -143,18 +161,26 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/release/resources</directory>
+                <excludes>
+                    <exclude>**/PLACEHOLDER.md</exclude>
+                </excludes>
+            </resource>
+        </resources>
     </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.9.0</version>
+            <version>5.18.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -171,7 +197,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>

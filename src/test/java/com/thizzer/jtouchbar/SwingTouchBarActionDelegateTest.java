@@ -84,7 +84,7 @@ public class SwingTouchBarActionDelegateTest {
 
 					@Override
 					protected ActionEvent getActionEvent() {
-						return null;
+						return new ActionEvent(this, 0, null);
 					}
 				};
 

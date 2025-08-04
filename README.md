@@ -1,12 +1,10 @@
-[![Build Status](https://travis-ci.org/Thizzer/JTouchBar.svg?branch=master)](https://travis-ci.org/Thizzer/JTouchBar)
+# JTouchBar 2
 
-# JTouchBar
-
-Java library for using the touchbar API on supported macbooks.
+Java library for using the touchbar API on supported macbooks. Fork of ttveldhuis' original [JTouchBar2] that adds arm64 support and merges various patches.
 
 Visit [Apple's](https://support.apple.com/en-us/HT207055) website for more information on the touchbar itself.
 
-## Support the Developers!
+## Support the (original) Developer!
 
 Please take a look at the other stuff the developers are working on and support them in other ways.
 
@@ -21,16 +19,16 @@ Please take a look at the other stuff the developers are working on and support 
 
 ```xml
 <dependency>
-	<groupId>com.thizzer.jtouchbar</groupId>
+	<groupId>ca.zone42.jtouchbar</groupId>
 	<artifactId>jtouchbar</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```gradle
-implementation group: 'com.thizzer.jtouchbar', name: 'jtouchbar', version: '1.0.1-SNAPSHOT'
+implementation group: 'ca.zone42.jtouchbar', name: 'jtouchbar', version: '2.0.0-SNAPSHOT'
 ```
 
 ### Using JTouchBar with Swing
@@ -48,22 +46,22 @@ jTouchBar.show(frame);
 
 ### Using JTouchBar with JavaFX
 
-There is a separate library for adding JavaFX support.
+There is a separate library for adding JavaFX support. (not yet built by this fork)
 
 #### Maven
 
 ```xml
 <dependency>
-	<groupId>com.thizzer.jtouchbar</groupId>
+	<groupId>ca.zone42.jtouchbar</groupId>
 	<artifactId>jtouchbar-javafx</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 </dependency>
 ```
 
 #### Gradle
 
 ```gradle
-implementation group: 'com.thizzer.jtouchbar', name: 'jtouchbar-javafx', version: '1.0.0'
+implementation group: 'ca.zone42.jtouchbar', name: 'jtouchbar-javafx', version: '2.0.0'
 ```
 
 #### JavaFX Example
@@ -96,28 +94,28 @@ jTouchBar.show(
 
 ### Using JTouchBar with SWT
 
-There is a separate library for adding SWT support.
+There is a separate library for adding SWT support. (not yet built by this fork)
 
 #### Maven
 
 ```xml
 <dependency>
-	<groupId>com.thizzer.jtouchbar</groupId>
+	<groupId>ca.zone42.jtouchbar</groupId>
 	<artifactId>jtouchbar-swt</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 </dependency>
 ```
 
 #### Gradle
 
 ```gradle
-implementation group: 'com.thizzer.jtouchbar', name: 'jtouchbar-swt', version: '1.0.0'
+implementation group: 'ca.zone42.jtouchbar', name: 'jtouchbar-swt', version: '2.0.0'
 ```
 ```xml
 <dependency>
-	<groupId>com.thizzer.jtouchbar</groupId>
+	<groupId>ca.zone42.jtouchbar</groupId>
 	<artifactId>jtouchbar-swt</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 </dependency>
 ```
 

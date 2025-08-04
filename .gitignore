@@ -1,3 +1,4 @@
 /target/
 hs_err_pid*.log
 xcuserdata/
+jtouchbar.xcconfig
